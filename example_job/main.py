@@ -32,7 +32,10 @@ def etl_job(sc, sqlContext):
 
     results = transform_pings(get_data(sc))
 
+    # Display results:
+    total = sum(map(lambda x: x[1], results.items()))
     # Print the OS and client_id counts in descending order:
     for pair in sorted(results.items(), key=lambda x: -x[1]):
-        print pair
+        print "OS: {:<10} Percent: {:0.2f}%"\
+            .format(pair[0], float(pair[1])/total)
 
