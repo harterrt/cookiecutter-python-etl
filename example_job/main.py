@@ -24,7 +24,7 @@ def transform_pings(pings):
     out = pings.map(ping_to_row).distinct()\
         .map(lambda x: x.os).countByValue()
 
-    return out
+    return dict(out)
 
 def etl_job(sc, sqlContext):
     """This is the function that will be executed on the cluster
