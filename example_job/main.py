@@ -37,5 +37,5 @@ def etl_job(sc, sqlContext):
     # Print the OS and client_id counts in descending order:
     for pair in sorted(results.items(), key=lambda x: -x[1]):
         print "OS: {:<10} Percent: {:0.2f}%"\
-            .format(pair[0], float(pair[1])/total)
+            .format(pair[0], float(pair[1])/total*100)
 
