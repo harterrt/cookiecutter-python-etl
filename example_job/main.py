@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 from pyspark import Row
 
 from moztelemetry import get_pings_properties
@@ -8,7 +8,7 @@ from moztelemetry.dataset import Dataset
 def get_data(sc):
     pings = Dataset.from_source("telemetry") \
         .where(docType='main') \
-        .where(submissionDate=date.today().strftime("%Y%m%d")) \
+        .where(submissionDate=(date.today() - timedelta(1)).strftime("%Y%m%d")) \
         .where(appUpdateChannel="nightly") \
         .records(sc, sample=0.1)
 
@@ -27,8 +27,7 @@ def transform_pings(pings):
     return dict(out)
 
 def etl_job(sc, sqlContext):
-    """This is the function that will be executed on the cluster
-    """
+    """This is the function that will be executed on the cluster"""
 
     results = transform_pings(get_data(sc))
 
