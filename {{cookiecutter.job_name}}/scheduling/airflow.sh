@@ -4,7 +4,7 @@
 unset PYSPARK_DRIVER_PYTHON
 
 # Clone, install, and run
-git clone https://github.com/harterrt/cookiecutter-python-etl.git
-cd cookiecutter-python-etl
+git clone {{cookiecutter.https_github_repo_url}}
+cd {{cookiecutter.job_name}}
 pip install .
-spark-submit scheduling/airflow_example.py
+spark-submit scheduling/airflow.py
