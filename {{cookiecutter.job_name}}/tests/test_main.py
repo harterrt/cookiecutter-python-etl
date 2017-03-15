@@ -1,11 +1,12 @@
 import pytest
 from pyspark import SparkConf, SparkContext
-from example_job import *
+from {{cookiecutter.job_name}} import *
 
 # Initialize a spark context:
 @pytest.fixture(scope="session")
 def spark_context(request):
-    conf = SparkConf().setMaster("local").setAppName("example_job_test")
+    conf = SparkConf().setMaster("local")\
+        .setAppName("{{cookiecutter.job_name}}" + "_test")
     sc = SparkContext(conf=conf)
 
     # teardown

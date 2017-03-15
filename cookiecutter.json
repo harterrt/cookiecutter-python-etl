@@ -1,0 +1,7 @@
+{
+    "job_name":"example_job",
+    "job_description":"An ETL job to estimate OS share in a day of nightly data",
+    "https_github_repo_url": "'HTTPS_GITHUB_REPO_URL'",
+    "author_name":"Sir Nobody the Mysterious",
+    "author_email":"nobody@mozilla.com"
+}
