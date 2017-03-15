@@ -1,7 +1,34 @@
 # What is this?
 
-This is a template for a Firefox Telemetry ETL job.
+This is a template for a python Firefox Telemetry ETL job.
 This repo contains the all of the necessary boilerplate to create a simple ETL job.
+
+## Usage
+
+To start a new ETL job, first create a new repository on github.
+You'll need the git HTTPS url for this repository when ititiating the ETL repo.
+
+If you haven't already, install [cookiecutter](https://github.com/audreyr/cookiecutter):
+```
+pip install cookiecutter
+```
+
+Then initialize the new repository with:
+```
+cookiecutter gh:harterrt/cookiecutter-python-etl
+```
+
+You'll be asked to fill in some fields:
+
+* `job_name`: a name for this packages, use lowercase and no hyphens
+* `job_description`: a short description for this job. Used in the README and setup.py
+* `https_github_repo_url`: used to populate the scheduling scripts (`airflow.py` & `load_and_execute.ipynb`)
+* `author_name`: Your name, for the licence and setup.py
+* `author_email`: Your email, for setup.py
+
+The boilerplate should now be available in a directory `job_name`.
+
+See below for scheduling tips.
 
 ## Benefits
 
